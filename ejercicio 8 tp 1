@@ -11,6 +11,7 @@ def concatenar(n):
         lista[i]=int(lista[i])
     return lista
 def sumar(lista):
+    """sumar los elementos de la lista"""
     suma=0
     for i in range(len(lista)):
         suma=suma+lista[i]
