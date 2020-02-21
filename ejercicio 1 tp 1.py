@@ -1,33 +1,32 @@
-# funciones
-def mayor(a,b,c):
-    """buscar el mayor estrico dentro de tres parametros"""
+def MayorEstricto(a,b,c):
     mayor=-1
     if a>b:
-        if a>c:
-            mayor=a
+        if a != c:
+            if a>c:
+                mayor=a
+            else:
+                mayor=c
     elif b>a:
-        if b>c:
-            mayor=b
-    if c>a:
-        if c>b:
-            mayor=c
-    return mayor 
-            
-        
-# programa principal
-""" pedirle al usuario que ingrese 3 numeros por teclado """
-a=int(input("ingrese un numero: "))
-while a<0:
-    print("ingrese un numero positivo ")
-    a=int(input(": "))
-b=int(input("ingrese un numero: "))
-while b<0:
-    print("ingrese un numero positivo ")
-    b=int(input(": "))
-c=int(input("ingrese un numero: "))
-while c<0:
-    print("ingrese un numero positivo ")
-    c=int(input(": "))
-buscarmayor= mayor(a,b,c)
-print(buscarmayor)
-    print("no existe un numero mayor")           
+        if b!=c:
+            if b>c:
+                mayor=b
+            else:
+                mayor=c
+    return mayor
+num=int(input('Ingrese un numero: '))
+while num<0:
+    print('El numero debe ser positivo')
+    num=int(input('Ingrese un numero: '))
+num1=int(input('Ingrese un numero: '))
+while num1<0:
+    print('El numero debe ser positivo')
+    num1=int(input('Ingrese un numero: '))
+num2=int(input('Ingrese un numero: '))
+while num2<0:
+    print('El numero debe ser positivo')
+    num2=int(input('Ingrese un numero: '))
+funcion=MayorEstricto(num,num1,num2)
+if funcion==-1:
+    print('No existe el mayor estricto')
+else:
+    print(funcion)               
