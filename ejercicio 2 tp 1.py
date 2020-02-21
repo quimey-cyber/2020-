@@ -1,45 +1,32 @@
-'''Desarrollar una función que reciba tres números enteros positivos y verifique si
-corresponden a una fecha gregoriana válida (día, mes, año). Devolver True o False
-según la fecha sea correcta o no.'''
-
-#funcion 
-def Positivo(a):
-    while a<0:
-        a=int(input("ingrese un numero positivo: "))
-    return a 
-    
-
-def fecha(a,b,c):
-    boole=True
-    añobi=False
-    if c%4 == 0 and (c%100 == 0 and c%400 == 0):
-        añobi=True
-    if b <= 12 and (a <= 31):
-        if (a == 30 and b%2 == 1) or (a == 31 and b%2 == 0):
-            boole=False
-        if b == 2 and (a >= 28):
-            boole=False
-        if b == 2 and (añobi==True and a >= 29):
-            boole=False
-    else:
-        boole=False
-    return boole
-
-#programa
-''' el usuario debe ingresar las fechas por teclado, a continuacion el programa llama a la funcion para controlar que el numero ingresado sea positivo'''
-dia=int(input("ingrese el dia: "))
-f=Positivo(dia)
-mes=int(input("ingrese un mes: "))
-g=Positivo(mes)
-año=int(input("ingrese año: "))
-r=Positivo(año)
-''' llamamos a la funcion para controlar la fecha ingresada '''
-resultado= fecha(f,g,r)
-
-if resultado == True:
-    print(f,"/",g, "/", r, "es una fecha valida")
-if resultado == False:
-    print(f,"/",g, "/", r, "es una fecha invalida")
-
-
-
+# F U N C I O N E S
+def gregorianos(a,b,c):
+    fecha=False
+    lista30=[4,6,9,11]
+    lista31=[1,3,5,7,8,10,12]
+    if  a<=31 and b in lista31:
+        fecha=True
+    elif a<=30 and b in lista30:
+        fecha=True
+    elif a<=29 and  b==2 and (c%4==0 and c%100!=0) or (c%400==0):
+        fecha=True
+    elif a<=28 and b==2:
+        fecha==True
+    return fecha
+# P R O G R A M A - P R I N C I P A L
+dia=int(input('Ingrese un dia: '))
+while dia <= 0:
+    print('ERROR, el numero no corresponde a un dia')
+    dia=int(input('Ingrese un dia: '))
+mes=int(input('Ingrese un mes: '))
+while mes <= 0:
+    print('ERROR, el numero no corresponde a un mes')
+    mes=int(input('Ingrese un mes: '))
+ano=int(input('Ingrese un anio: '))
+while ano <= 0:
+    print('ERROR, el numero no corresponde a un ano ')
+    ano=int(input('Ingrese un anio: '))
+valor=gregorianos(dia,mes,ano)
+if valor ==True:
+    print('Fecha valida')
+else:
+    print('Fecha invalida')
